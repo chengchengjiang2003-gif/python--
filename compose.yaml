@@ -1,0 +1,13 @@
+services:
+  relay:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - relay-data:/app/data
+    environment:
+      RELAY_AI_API_KEY: ${RELAY_AI_API_KEY:-}
+      RELAY_AI_BASE_URL: ${RELAY_AI_BASE_URL:-https://api.openai.com/v1}
+      RELAY_AI_MODEL: ${RELAY_AI_MODEL:-gpt-4.1-mini}
+volumes:
+  relay-data:
